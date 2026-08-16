@@ -2,7 +2,7 @@ name: Push to DockerHub
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs: 
   build-and-push:
@@ -37,13 +37,13 @@ jobs:
           context: ./notes-backend
           push: true
           tags: |
-            mariosek1/notes-backend:v${{ github.run_number }}
-            mariosek1/notes-backend:latest
+            itsweasel/notes-backend:v${{ github.run_number }}
+            itsweasel/notes-backend:latest
       - name: Build and push frontend
         uses: docker/build-push-action@v5
         with:
           context: ./notes-frontend
           push: true
           tags: |
-            mariosek1/notes-frontend:v${{ github.run_number }}
-            mariosek1/notes-frontend:latest 
+            itsweasel/notes-frontend:v${{ github.run_number }}
+            itsweasel/notes-frontend:latest 
