@@ -1,9 +1,12 @@
 import React from 'react';
 
 const TagFilter = ({ tags, selectedTag, onTagSelect }) => {
+    const tagList = Array.isArray(tags) ? tags : [];
+
     return (
         <div className="tag-filter">
             <label htmlFor="tag-select">Filter by tag:</label>
+
             <select
                 id="tag-select"
                 value={selectedTag}
@@ -11,7 +14,8 @@ const TagFilter = ({ tags, selectedTag, onTagSelect }) => {
                 className="tag-select"
             >
                 <option value="">All tags</option>
-                {tags.map(tag => (
+
+                {tagList.map(tag => (
                     <option key={tag.id} value={tag.name}>
                         {tag.name}
                     </option>
